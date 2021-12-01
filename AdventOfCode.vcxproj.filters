@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source\Helpers Source\Generated Source\Challenges\Common Source\Challenges Source"/>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\Helpers\FileHelpers.cpp Source\Challenges\Common\Challenge.cpp Source\Challenges\Challenge_N.cpp Source\Challenges\Challenge_1.cpp Source\AdventOfCode.cpp">
+      <Filter>Source\Helpers\FileHelpers.cpp Source\Challenges\Common\Challenge.cpp Source\Challenges\Challenge_N.cpp Source\Challenges\Challenge_1.cpp Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Helpers\FileHelpers.h Source\Generated\GeneratedDefinitions.h Source\CommonDefinitions.h Source\Challenges\Common\Challenge.h Source\Challenges\Challenge_N.h Source\Challenges\Challenge_1.h">
+      <Filter>Source\Helpers\FileHelpers.h Source\Generated\GeneratedDefinitions.h Source\CommonDefinitions.h Source\Challenges\Common\Challenge.h Source\Challenges\Challenge_N.h Source\Challenges</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
