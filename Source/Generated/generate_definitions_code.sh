@@ -5,8 +5,6 @@ DEFINITIONS_FILE="GeneratedDefinitions.h"
 PATH_SEPARATOR=":::"
 FOUND_H_FILES=$(find "../Challenges" -maxdepth 1 -type f -name "*.h" | tac)
 
-echo $FOUND_H_FILES
-
 #========================================================================================
 #  Challenge includes
 #========================================================================================
@@ -23,10 +21,10 @@ if [ $(($REGION_END - $REGION_BEGIN - 1)) -gt 0 ]; then
 fi
 
 # Add the current .h entries
-while read -r FILE; do
+echo "$FOUND_H_FILES" | while read -r FILE; do
     sed -i "$REGION_BEGIN a\\#include \"$FILE\"" $DEFINITIONS_FILE
     echo "      +  $FILE"
-done <<< $(echo "$FOUND_H_FILES")
+done
 
 
 

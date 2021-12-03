@@ -14,4 +14,8 @@ private:
     virtual EErrorCode CleanUp_SecondPart() override;
 
     static std::string const sm_inputFilePath;
+
+    const int m_windowSize = 3;
+    std::vector<int> m_depths;
+
 };

@@ -30,11 +30,11 @@ if [ $(($FILTERS_END - $FILTERS_BEGIN - 1)) -gt 0 ]; then
 fi
 
 # Add the current directory filter entries
-while read -r DIRECTORY; do
+echo "$FOUND_DIRECTORIES" | while read -r DIRECTORY; do
     ADJUSTED_DIRECTORY=$(echo $DIRECTORY | sed "s?/?$PATH_SEPARATOR?g")
     sed -i "$FILTERS_BEGIN a\\    <Filter Include=\"$ADJUSTED_DIRECTORY\"/>" $FILTERS_FILE
     echo "      +  $DIRECTORY"
-done <<< $(echo "$FOUND_DIRECTORIES")
+done
 
 
 
@@ -65,7 +65,7 @@ if [ $(($FILTERS_END - $FILTERS_BEGIN - 1)) -gt 0 ]; then
 fi
 
 # Add the current .cpp entries
-while read -r FILE; do
+echo "$FOUND_CPP_FILES" | while read -r FILE; do
     ADJUSTED_FILE=$(echo $FILE | sed "s?/?$PATH_SEPARATOR?g")
     FILE_DIRECTORY="${ADJUSTED_FILE%$PATH_SEPARATOR*}"
 
@@ -76,7 +76,7 @@ while read -r FILE; do
     sed -i "$FILTERS_BEGIN a\\    <ClCompile Include=\"$ADJUSTED_FILE\">" $FILTERS_FILE
 
     echo "      +  $FILE"
-done <<< $(echo "$FOUND_CPP_FILES")
+done
 
 
 
@@ -107,7 +107,7 @@ if [ $(($FILTERS_END - $FILTERS_BEGIN - 1)) -gt 0 ]; then
 fi
 
 # Add the current .h entries
-while read -r FILE; do
+echo "$FOUND_H_FILES" | while read -r FILE; do
     ADJUSTED_FILE=$(echo $FILE | sed "s?/?$PATH_SEPARATOR?g")
     FILE_DIRECTORY="${ADJUSTED_FILE%$PATH_SEPARATOR*}"
 
@@ -118,7 +118,7 @@ while read -r FILE; do
     sed -i "$FILTERS_BEGIN a\\    <ClInclude Include=\"$ADJUSTED_FILE\">" $FILTERS_FILE
 
     echo "      +  $FILE"
-done <<< $(echo "$FOUND_H_FILES")
+done
 
 
 #========================================================================================

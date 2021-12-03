@@ -18,17 +18,30 @@ EErrorCode CChallenge_1::SetUp_FirstPart()
         return readErrorCode;
     }
 
-    return EErrorCode::NotImplemented;
+    for (std::string& line : lines)
+    {
+        m_depths.push_back(std::stoi(line));
+    }
+
+    return EErrorCode::Success;
 }
 
 EErrorCode CChallenge_1::Run_FirstPart()
 {
-    return EErrorCode::NotImplemented;
+    int depthIncreaseCount = 0;
+    for (int i = 1; i < m_depths.size(); ++i)
+    {
+        depthIncreaseCount += m_depths[i - 1] < m_depths[i] ? 1 : 0;
+    }
+
+    std::cout << "Done ! There are " << depthIncreaseCount << " depths increases." << std::endl;
+
+    return EErrorCode::Success;
 }
 
 EErrorCode CChallenge_1::CleanUp_FirstPart()
 {
-    return EErrorCode::NotImplemented;
+    return EErrorCode::Success;
 }
 
 
@@ -36,22 +49,30 @@ EErrorCode CChallenge_1::CleanUp_FirstPart()
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 EErrorCode CChallenge_1::SetUp_SecondPart()
 {
-    std::vector<std::string> lines;
-    EErrorCode const readErrorCode = FileHelper::ReadLines(sm_inputFilePath, lines);
-    if (readErrorCode != EErrorCode::Success)
-    {
-        return readErrorCode;
-    }
-    
-    return EErrorCode::NotImplemented;
+    return SetUp_FirstPart();
 }
 
 EErrorCode CChallenge_1::Run_SecondPart()
 {
-    return EErrorCode::NotImplemented;
+    if (m_depths.size() < m_windowSize + 1)
+    {
+        std::cout << "Not enough depth readings to compute and compare two windows." << std::endl;
+        return EErrorCode::Success;
+    }
+
+    int depthWindowIncreaseCount = 0;
+    for (int i = 0; i < m_depths.size() - m_windowSize; ++i)
+    {
+        if (m_depths[i] < m_depths[i + m_windowSize])
+            ++depthWindowIncreaseCount;
+    }
+
+    std::cout << "Done ! There are " << depthWindowIncreaseCount << " depths increases." << std::endl;
+
+    return EErrorCode::Success;
 }
 
 EErrorCode CChallenge_1::CleanUp_SecondPart()
 {
-    return EErrorCode::NotImplemented;
+    return EErrorCode::Success;
 }
