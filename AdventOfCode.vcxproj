@@ -144,6 +144,7 @@
     <ClCompile Include="Source\Challenges\Challenge_2.cpp"/>
     <ClCompile Include="Source\Challenges\Challenge_3.cpp"/>
     <ClCompile Include="Source\Challenges\Challenge_4.cpp"/>
+    <ClCompile Include="Source\Challenges\Challenge_5.cpp"/>
     <ClCompile Include="Source\Challenges\Challenge_N.cpp"/>
     <ClCompile Include="Source\Challenges\Common\Challenge.cpp"/>
     <ClCompile Include="Source\Helpers\FileHelpers.cpp"/>
@@ -153,6 +154,7 @@
     <ClInclude Include="Source\Challenges\Challenge_2.h"/>
     <ClInclude Include="Source\Challenges\Challenge_3.h"/>
     <ClInclude Include="Source\Challenges\Challenge_4.h"/>
+    <ClInclude Include="Source\Challenges\Challenge_5.h"/>
     <ClInclude Include="Source\Challenges\Challenge_N.h"/>
     <ClInclude Include="Source\Challenges\Common\Challenge.h"/>
     <ClInclude Include="Source\CommonDefinitions.h"/>

@@ -6,7 +6,7 @@
 
 
 // EDIT HERE:  These lines will change what is executed
-#define CHALLENGE_TYPE CChallenge_4
+#define CHALLENGE_TYPE CChallenge_5
 #define IS_FIRST_PART false
 
 // EDIT_HERE:  Set this to true if your console closes before you have time to see your results at the end of the program
@@ -27,7 +27,7 @@ int main()
 
     if (BENCHMARK)
         std::cout << "Benchmarking..." << std::endl;
-    for (int i = 0; i < programExecutionCount && errorCode == EErrorCode::Success; ++i)
+    for (int i = 1; i <= programExecutionCount && errorCode == EErrorCode::Success; ++i)
     {
         if (BENCHMARK)
             std::cout << "Iteration #" << i << std::endl;
