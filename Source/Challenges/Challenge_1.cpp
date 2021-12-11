@@ -41,6 +41,7 @@ EErrorCode CChallenge_1::Run_FirstPart()
 
 EErrorCode CChallenge_1::CleanUp_FirstPart()
 {
+    m_depths.clear();
     return EErrorCode::Success;
 }
 
@@ -74,5 +75,6 @@ EErrorCode CChallenge_1::Run_SecondPart()
 
 EErrorCode CChallenge_1::CleanUp_SecondPart()
 {
+    m_depths.clear();
     return EErrorCode::Success;
 }

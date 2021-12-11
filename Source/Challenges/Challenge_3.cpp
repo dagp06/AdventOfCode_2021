@@ -67,6 +67,8 @@ EErrorCode CChallenge_3::Run_FirstPart()
 
 EErrorCode CChallenge_3::CleanUp_FirstPart()
 {
+    m_numbers.clear();
+    m_bitCount = 0;
     return EErrorCode::Success;
 }
 
@@ -118,6 +120,8 @@ EErrorCode CChallenge_3::Run_SecondPart()
 
 EErrorCode CChallenge_3::CleanUp_SecondPart()
 {
+    m_numbers.clear();
+    m_bitCount = 0;
     return EErrorCode::Success;
 }
 

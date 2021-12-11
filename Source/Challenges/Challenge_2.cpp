@@ -47,6 +47,7 @@ EErrorCode CChallenge_2::Run_FirstPart()
 
 EErrorCode CChallenge_2::CleanUp_FirstPart()
 {
+    m_commandStrings.clear();
     return EErrorCode::Success;
 }
 
@@ -93,5 +94,6 @@ EErrorCode CChallenge_2::Run_SecondPart()
 
 EErrorCode CChallenge_2::CleanUp_SecondPart()
 {
+    m_commandStrings.clear();
     return EErrorCode::Success;
 }

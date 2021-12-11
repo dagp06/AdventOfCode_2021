@@ -7,7 +7,7 @@
 
 // EDIT HERE:  These lines will change what is executed
 #define CHALLENGE_TYPE CChallenge_4
-#define IS_FIRST_PART true
+#define IS_FIRST_PART false
 
 // EDIT_HERE:  Set this to true if your console closes before you have time to see your results at the end of the program
 #define HOLD_EXECUTION true
@@ -18,29 +18,48 @@ int main()
 {
     CHALLENGE_TYPE challenge;
 
-    // Set up challenge program
-    TIME_NOW(setUpBegin);
-    EErrorCode errorCode = challenge.SetUp(IS_FIRST_PART);
-    TIME_NOW(setUpEnd);
+    int programExecutionCount = BENCHMARK ? 1000 : 1;
 
-    // Execute challenge program
-    TIME_NOW(executionBegin);
-    if (errorCode == EErrorCode::Success)
+    float setUpDuration = 0.f;
+    float executionDuration = 0.f;
+    float cleanUpDuration = 0.f;
+    EErrorCode errorCode = EErrorCode::Success;
+
+    if (BENCHMARK)
+        std::cout << "Benchmarking..." << std::endl;
+    for (int i = 0; i < programExecutionCount && errorCode == EErrorCode::Success; ++i)
     {
-        errorCode = challenge.Run();
+        if (BENCHMARK)
+            std::cout << "Iteration #" << i << std::endl;
+        // Set up challenge program
+        TIME_NOW(setUpBegin);
+        errorCode = challenge.SetUp(IS_FIRST_PART);
+        TIME_NOW(setUpEnd);
+        setUpDuration += (float)TIME_DIFF_MICRO(setUpBegin, setUpEnd);
+
+        // Execute challenge program
+        TIME_NOW(executionBegin);
+        if (errorCode == EErrorCode::Success)
+        {
+            errorCode = challenge.Run();
+        }
+        TIME_NOW(executionEnd);
+        executionDuration += (float)TIME_DIFF_MICRO(executionBegin, executionEnd);
+
+        // Clean up challange program
+        TIME_NOW(cleanUpBegin);
+        challenge.CleanUp();
+        TIME_NOW(cleanUpEnd);
+        cleanUpDuration += (float)TIME_DIFF_MICRO(cleanUpBegin, cleanUpEnd);
     }
-    TIME_NOW(executionEnd);
-
-    // Clean up challange program
-    TIME_NOW(cleanUpBegin);
-    challenge.CleanUp();
-    TIME_NOW(cleanUpEnd);
-
     // Print timings
     std::cout << std::endl << "<========>  DONE!  <========>" << std::endl;
-    std::cout << "  Set Up    :  " << TIME_DIFF_MICRO(setUpBegin, setUpEnd) << " s" << std::endl;
-    std::cout << "  Execution :  " << TIME_DIFF_MICRO(executionBegin, executionEnd) << " s" << std::endl;
-    std::cout << "  Clean Up  :  " << TIME_DIFF_MICRO(cleanUpBegin, cleanUpEnd) << " s" << std::endl;
+    std::cout << "  Program ran " << programExecutionCount << " time" << (programExecutionCount > 1 ? "s" : "") << "." << std::endl;
+    std::cout << "  Set Up    :  " << setUpDuration / programExecutionCount << " s" << std::endl;
+    std::cout << "  Execution :  " << executionDuration / programExecutionCount << " s" << std::endl;
+    std::cout << "  Clean Up  :  " << cleanUpDuration / programExecutionCount << " s" << std::endl;
+
+    std::cout << "  Total     :  " << (setUpDuration + executionDuration + cleanUpDuration) / programExecutionCount << " s" << std::endl;
     std::cout << "<===========================>" << std::endl;
 
     // Hold

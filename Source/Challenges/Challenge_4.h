@@ -19,8 +19,10 @@ private:
     typedef std::vector<int> BingoRow;
     typedef std::vector<BingoRow> BingoCard;
 
+    void PrintBingoCard(const BingoCard& _bingoCard);
+    void PrintBingoCardIndexes(const BingoCard& _bingoCard);
+
     static const int sm_cardSize = 5;
-    std::vector<int> m_numbers;
     std::map<int, int> m_drawOrderMap;
     std::vector<BingoCard> m_bingoCards;
 };

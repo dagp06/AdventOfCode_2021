@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 
+#define BENCHMARK true
+
 enum class EErrorCode
 {
     Success,
