@@ -18,19 +18,24 @@ int main()
 {
     CHALLENGE_TYPE challenge;
 
-    int programExecutionCount = BENCHMARK ? 1000 : 1;
+    int programExecutionCount = 1;
+#ifdef BENCHMARK
+    programExecutionCount = 1000;
+#endif
 
     float setUpDuration = 0.f;
     float executionDuration = 0.f;
     float cleanUpDuration = 0.f;
     EErrorCode errorCode = EErrorCode::Success;
 
-    if (BENCHMARK)
+#ifdef BENCHMARK
         std::cout << "Benchmarking..." << std::endl;
+#endif
     for (int i = 1; i <= programExecutionCount && errorCode == EErrorCode::Success; ++i)
     {
-        if (BENCHMARK)
+#ifdef BENCHMARK
             std::cout << "Iteration #" << i << std::endl;
+#endif
         // Set up challenge program
         TIME_NOW(setUpBegin);
         errorCode = challenge.SetUp(IS_FIRST_PART);

@@ -36,10 +36,9 @@ EErrorCode CChallenge_7::Run_FirstPart()
 
     long long fuelConsumed = ComputeTotalFuelConsumed(median, true);
 
-    if (!BENCHMARK)
-    {
-        cout << "Done ! Crabs will alling on pos " << median << " and consume a total of " << fuelConsumed << " fuel." << endl;
-    }
+#if !defined(BENCHMARK)
+    cout << "Done ! Crabs will alling on pos " << median << " and consume a total of " << fuelConsumed << " fuel." << endl;
+#endif // !BENCHMARK
 
     return EErrorCode::Success;
 }
@@ -85,10 +84,10 @@ EErrorCode CChallenge_7::Run_SecondPart()
 
     bool lowMeanIsMoreEfficient = fuelConsumedLowMean < fuelConsumedHighMean;
 
-    if (!BENCHMARK)
-    {
-        cout << "Done ! Crabs will alling on pos " << m_lowMeanPos + (lowMeanIsMoreEfficient ? 0 : 1) << " and consume a total of " << (lowMeanIsMoreEfficient ? fuelConsumedLowMean : fuelConsumedHighMean) << " fuel." << endl;
-    }
+
+#if !defined(BENCHMARK)
+    cout << "Done ! Crabs will alling on pos " << m_lowMeanPos + (lowMeanIsMoreEfficient ? 0 : 1) << " and consume a total of " << (lowMeanIsMoreEfficient ? fuelConsumedLowMean : fuelConsumedHighMean) << " fuel." << endl;
+#endif // !BENCHMARK
 
     return EErrorCode::Success;
 }

@@ -58,8 +58,9 @@ EErrorCode CChallenge_5::Run_FirstPart()
         }
     }
 
-    if (!BENCHMARK)
-        cout << "Done ! Vent lines overlap at " << overlappingVentCoordinateCount << " points." << endl;
+#if !defined(BENCHMARK)
+    cout << "Done ! Vent lines overlap at " << overlappingVentCoordinateCount << " points." << endl;
+#endif // !BENCHMARK
 
     return EErrorCode::Success;
 }
@@ -118,8 +119,9 @@ EErrorCode CChallenge_5::Run_SecondPart()
         }
     }
 
-    if (!BENCHMARK)
-        cout << "Done ! Vent lines overlap at " << overlappingVentCoordinateCount << " points." << endl;
+#if !defined(BENCHMARK)
+    cout << "Done ! Vent lines overlap at " << overlappingVentCoordinateCount << " points." << endl;
+#endif // !BENCHMARK
 
     return EErrorCode::Success;
 }

@@ -48,8 +48,9 @@ EErrorCode CChallenge_8::Run_FirstPart()
         outputSplit.clear();
     }
 
-    if (!BENCHMARK)
-        cout << "Done ! Digits 1, 4, 7 and 8 appear " << count << " times in the output values." << endl;
+#if !defined(BENCHMARK)
+    cout << "Done ! Digits 1, 4, 7 and 8 appear " << count << " times in the output values." << endl;
+#endif // !BENCHMARK
 
     return EErrorCode::Success;
 }
@@ -103,8 +104,9 @@ EErrorCode CChallenge_8::Run_SecondPart()
         outputValuesSum += entry.Solve();
     }
 
-    if (!BENCHMARK)
-        cout << "Done ! The sum of all output values is " << outputValuesSum << "." << endl;
+#if !defined(BENCHMARK)
+    cout << "Done ! The sum of all output values is " << outputValuesSum << "." << endl;
+#endif // !BENCHMARK
 
     return EErrorCode::Success;
 }
@@ -140,9 +142,10 @@ int CChallenge_8::Entry::Solve()
         Remap(output, realSignal);
         sort(realSignal.begin(), realSignal.end());
         const int& value = ms_signalToNumber.at(realSignal);
-        
-        if (!BENCHMARK)
-            cout << " = " << value << endl;
+
+#if !defined(BENCHMARK)
+        cout << " = " << value << endl;
+#endif // !BENCHMARK
         
         outputValue += value;
         outputValue *= 10;
@@ -331,6 +334,7 @@ void CChallenge_8::Entry::Remap(const string& _output, string& _outRealSignals)
         _outRealSignals.push_back(m_signalRemapping.at(signal));
     }
 
-    if (!BENCHMARK)
-        cout << _output << " --> " << _outRealSignals;
+#if !defined(BENCHMARK)
+    cout << _output << " --> " << _outRealSignals;
+#endif // !BENCHMARK
 }

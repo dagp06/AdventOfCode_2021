@@ -95,11 +95,10 @@ EErrorCode CChallenge_4::Run_FirstPart()
         return EErrorCode::Undefined;
     }
 
-    if (!BENCHMARK)
-    {
-        std::cout << "First bingo card to finish :" << std::endl;
-        PrintBingoCard(*firstBingoCardToFinish);
-    }
+#if !defined(BENCHMARK)
+    std::cout << "First bingo card to finish :" << std::endl;
+    PrintBingoCard(*firstBingoCardToFinish);
+#endif // !BENCHMARK
 
     // Sum all numbers that were not picked
     int unmarkedNumbersSum = 0;
@@ -124,14 +123,13 @@ EErrorCode CChallenge_4::Run_FirstPart()
 
     int score = unmarkedNumbersSum * lastNumberPicked;
 
-    if (!BENCHMARK)
-    {
-        std::cout << "Last index picked :" << lastPickedIdx << std::endl;
-        std::cout << "Last number picked :" << lastNumberPicked << std::endl;
-        // Multiply by last picked number
+#if !defined(BENCHMARK)
+    std::cout << "Last index picked :" << lastPickedIdx << std::endl;
+    std::cout << "Last number picked :" << lastNumberPicked << std::endl;
+    // Multiply by last picked number
 
-        std::cout << "Done !" << "The score is " << score << std::endl;
-    }
+    std::cout << "Done !" << "The score is " << score << std::endl;
+#endif // !BENCHMARK
 
     return EErrorCode::Success;
 }
@@ -231,11 +229,10 @@ EErrorCode CChallenge_4::Run_SecondPart()
         return EErrorCode::Undefined;
     }
 
-    if (!BENCHMARK)
-    {
-        std::cout << "First bingo card to finish :" << std::endl;
-        PrintBingoCard(*lastBingoCardToFinish);
-    }
+#if !defined(BENCHMARK)
+    std::cout << "First bingo card to finish :" << std::endl;
+    PrintBingoCard(*lastBingoCardToFinish);
+#endif // !BENCHMARK
 
     // Sum all numbers that were not picked
     int unmarkedNumbersSum = 0;
@@ -260,14 +257,14 @@ EErrorCode CChallenge_4::Run_SecondPart()
 
     int score = unmarkedNumbersSum * lastNumberPicked;
 
-    if (!BENCHMARK)
-    {
-        std::cout << "Last index picked :" << lastPickedIdx << std::endl;
-        std::cout << "Last number picked :" << lastNumberPicked << std::endl;
-        // Multiply by last picked number
 
-        std::cout << "Done !" << "The score is " << score << std::endl;
-    }
+#if !defined(BENCHMARK)
+    std::cout << "Last index picked :" << lastPickedIdx << std::endl;
+    std::cout << "Last number picked :" << lastNumberPicked << std::endl;
+    // Multiply by last picked number
+
+    std::cout << "Done !" << "The score is " << score << std::endl;
+#endif // !BENCHMARK
 
     return EErrorCode::Success;
 }

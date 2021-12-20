@@ -7,12 +7,18 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AdventOfCode", "AdventOfCod
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Benchmark|x64 = Benchmark|x64
+		Benchmark|x86 = Benchmark|x86
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B6F80E1A-3A8D-4B26-B36F-28B5BB1E25CB}.Benchmark|x64.ActiveCfg = Benchmark|x64
+		{B6F80E1A-3A8D-4B26-B36F-28B5BB1E25CB}.Benchmark|x64.Build.0 = Benchmark|x64
+		{B6F80E1A-3A8D-4B26-B36F-28B5BB1E25CB}.Benchmark|x86.ActiveCfg = Benchmark|Win32
+		{B6F80E1A-3A8D-4B26-B36F-28B5BB1E25CB}.Benchmark|x86.Build.0 = Benchmark|Win32
 		{B6F80E1A-3A8D-4B26-B36F-28B5BB1E25CB}.Debug|x64.ActiveCfg = Debug|x64
 		{B6F80E1A-3A8D-4B26-B36F-28B5BB1E25CB}.Debug|x64.Build.0 = Debug|x64
 		{B6F80E1A-3A8D-4B26-B36F-28B5BB1E25CB}.Debug|x86.ActiveCfg = Debug|Win32

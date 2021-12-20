@@ -36,10 +36,9 @@ EErrorCode CChallenge_6::Run_FirstPart()
 
     long long lanternFishCount = ComputeTotalLanternfish();
 
-    if (!BENCHMARK)
-    {
-        cout << "Done ! After 80 days, there would be " << lanternFishCount << " lanternfish." << endl;
-    }
+#if !defined(BENCHMARK)
+    cout << "Done ! After 80 days, there would be " << lanternFishCount << " lanternfish." << endl;
+#endif // !BENCHMARK
 
     return EErrorCode::Success;
 }
@@ -81,10 +80,9 @@ EErrorCode CChallenge_6::Run_SecondPart()
 
     long long lanternFishCount = ComputeTotalLanternfish();
 
-    if (!BENCHMARK)
-    {
-        cout << "Done ! After 256 days, there would be " << lanternFishCount << " lanternfish." << endl;
-    }
+#if !defined(BENCHMARK)
+    cout << "Done ! After 256 days, there would be " << lanternFishCount << " lanternfish." << endl;
+#endif // !BENCHMARK
 
     return EErrorCode::Success;
 }

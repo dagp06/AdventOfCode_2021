@@ -77,8 +77,10 @@ EErrorCode CChallenge_9::Run_FirstPart()
         }
     }
 
-    if (!BENCHMARK)
-        cout << "Done ! There are " << lowPointCounts << " low points. The total risk level is " << riskLevel << "." << endl;
+
+#if !defined(BENCHMARK)
+    cout << "Done ! There are " << lowPointCounts << " low points. The total risk level is " << riskLevel << "." << endl;
+#endif // !BENCHMARK
 
     return EErrorCode::Success;
 }
@@ -145,8 +147,9 @@ EErrorCode CChallenge_9::Run_SecondPart()
             break;
     }
 
-    if (!BENCHMARK)
-        cout << "Done ! By multiplying together the sizes of the three largest basins, we get " << largestBasinsProduct << "." << endl;
+#if !defined(BENCHMARK)
+    cout << "Done ! By multiplying together the sizes of the three largest basins, we get " << largestBasinsProduct << "." << endl;
+#endif // !BENCHMARK
 
     return EErrorCode::Success;
 }
