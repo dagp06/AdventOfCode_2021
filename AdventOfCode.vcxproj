@@ -207,6 +207,7 @@
   <ItemGroup>
     <ClCompile Include="Source\AdventOfCode.cpp" />
     <ClCompile Include="Source\Challenges\Challenge_1.cpp" />
+    <ClCompile Include="Source\Challenges\Challenge_10.cpp" />
     <ClCompile Include="Source\Challenges\Challenge_2.cpp" />
     <ClCompile Include="Source\Challenges\Challenge_3.cpp" />
     <ClCompile Include="Source\Challenges\Challenge_4.cpp" />
@@ -221,6 +222,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Challenges\Challenge_1.h" />
+    <ClInclude Include="Source\Challenges\Challenge_10.h" />
     <ClInclude Include="Source\Challenges\Challenge_2.h" />
     <ClInclude Include="Source\Challenges\Challenge_3.h" />
     <ClInclude Include="Source\Challenges\Challenge_4.h" />
