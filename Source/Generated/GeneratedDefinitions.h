@@ -6,6 +6,7 @@
 #include "../Challenges/Challenge_11.h"
 #include "../Challenges/Challenge_12.h"
 #include "../Challenges/Challenge_13.h"
+#include "../Challenges/Challenge_18.h"
 #include "../Challenges/Challenge_2.h"
 #include "../Challenges/Challenge_3.h"
 #include "../Challenges/Challenge_4.h"
