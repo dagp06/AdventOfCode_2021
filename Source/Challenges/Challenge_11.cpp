@@ -18,7 +18,7 @@ EErrorCode CChallenge_11::SetUp_FirstPart()
         return readErrorCode;
     }
 
-    m_rowSize = lines[0].size();
+    m_rowSize = (int)lines[0].size();
     m_energyLevelGrid.resize(lines.size(), Row<int>(m_rowSize));
     for (int row = 0; row < lines.size(); ++row)
     {
@@ -63,7 +63,7 @@ EErrorCode CChallenge_11::SetUp_SecondPart()
         return readErrorCode;
     }
 
-    m_rowSize = lines[0].size();
+    m_rowSize = (int)lines[0].size();
     m_energyLevelGrid.resize(lines.size(), Row<int>(m_rowSize));
     for (int row = 0; row < lines.size(); ++row)
     {
@@ -119,7 +119,7 @@ void CChallenge_11::Simulate(int _count, int& _flashCount)
 void CChallenge_11::FindFirstSynchronizedFlashStep(int& _stepCount)
 {
     _stepCount = 1;
-    const int octopusCount = m_energyLevelGrid.size() * m_rowSize;
+    const int octopusCount = (int)m_energyLevelGrid.size() * m_rowSize;
 
     while (true)
     {

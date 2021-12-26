@@ -294,6 +294,8 @@ CChallenge_18::Leaf* CChallenge_18::NodeComposite::FetchLeftNeighboor(Node* _sou
     {
         return m_right->FetchLeftNeighboor(this);
     }
+
+    return nullptr;
 }
 
 CChallenge_18::Leaf* CChallenge_18::NodeComposite::FetchRightNeighboor(Node* _source)
@@ -317,6 +319,8 @@ CChallenge_18::Leaf* CChallenge_18::NodeComposite::FetchRightNeighboor(Node* _so
     {
         return m_left->FetchRightNeighboor(this);
     }
+
+    return nullptr;
 }
 
 int CChallenge_18::NodeComposite::ComputeMagnitude() const
@@ -528,7 +532,7 @@ void CChallenge_18::Number::SplitNode(Node* _node)
 
     Leaf* newRightLeaf = leafToSplit; // Re-use leaf instead of deleting it and creating a new one
     newRightLeaf->SetParent(newCompositeNode);
-    newRightLeaf->SetValue(ceil(leafToSplit->GetValue() / 2.f));
+    newRightLeaf->SetValue((int)ceil(leafToSplit->GetValue() / 2.f));
     newCompositeNode->SetRight(newRightLeaf);
 
     parent->ReplaceChild(leafToSplit, newCompositeNode);
